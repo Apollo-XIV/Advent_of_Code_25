@@ -11,3 +11,17 @@ def part1(input):
             tally += 1
     return tally
 
+def part2(input):
+    turns = [x for x in input.split("\n") if x != ""]
+    pos = 50
+    tally = 0
+    for turn in turns:
+        dir = 1 if turn[0] == "R" else -1
+        delta = int(turn[1:])
+        for i in range(delta):
+            pos += 1 * dir
+            pos %= 100
+            if pos == 0:
+                tally += 1
+    return tally
+
